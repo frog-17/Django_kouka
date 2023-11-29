@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+	<main>
+	    <div class="container-fluid px-4">
+	        <h1 class="mt-4">Contact</h1>
+	        <div class="row">
+                {% if any %}
+                {{ any }}
+                {% endif %}
+		        {% include 'email.html' %}
+	        </div>
+	    </div>
+	</main>
+
+{% endblock contents %}

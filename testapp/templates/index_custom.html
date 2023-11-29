@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+	<main>
+	    <div class="container-fluid px-4">
+	        <h1 class="mt-4">プロフィール</h1>
+	        <ol class="breadcrumb mb-4">
+	            <li class="breadcrumb-item active">ホーム <a href='{% url "profileapp:index" %}'>閲覧用ホームはこちら</a></li>
+	        </ol>
+	        <div class="row">
+		        {% include 'info_custom.html' %}
+	        </div>
+	    </div>
+	</main>
+
+{% endblock contents %}

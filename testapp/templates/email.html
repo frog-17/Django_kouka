@@ -1,0 +1,27 @@
+<style>
+    .myright{
+        float: right;
+    }
+</style>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <div>
+            <div class="container mt-4">
+                <label for="email">email:</label>
+                <input name="email" type="text" class="form-control" required>
+            </div>
+            <div class="container mt-4">
+                <label for="subject">subject:</label>
+                <input name="subject" type="text" class="form-control" required>
+            </div>
+            <div class="container mt-4">
+                <label for="message">message:</label>
+                <textarea class="form-control" id="largeTextArea" name="message" rows="8" required></textarea>
+            </div>
+            <div class="col-auto mt-4 mb-4">
+                <input type="submit" class="myright btn-primary btn">
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,2229 @@
+{% load static %}
+<style>
+    .mycolor{
+        color: aliceblue;
+        text-decoration: none;
+    }
+    .myright{
+        float: right;
+    }
+</style>
+<div class="col-xl-6">
+	<div class="card mb-4">
+	    <div class="card-header">
+	        <i class="fas fa-table me-1"></i>
+	        	基本情報
+	    </div>
+		<div class="card-body">
+            <form method="post" id="myform">
+                {% csrf_token %}
+                <table class="table table-bordered">
+                    {% if a %}
+                    {% for data in a %}
+                    <tbody>
+                        <tr>
+                            <th>名前</th>
+                            <td><input type="text" name="name" class="form-control" value="{{ data.name }}"></td>
+                        </tr>
+                        <tr>
+                            <th>性別</th>
+                            <td>
+                                <select name="gender" id="">
+                                    <option {% if data.gender == '女性' %}selected{% endif %} value="女性">女性</option>
+                                    <option {% if data.gender == '男性' %}selected{% endif %} value="男性">男性</option>
+                                    <option {% if data.gender == 'その他' %}selected{% endif %} value="その他">その他</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>生年月日</th>
+                            <td>{{ user.birthday }}</td>
+                        </tr>
+                        <tr>
+                            <th>住所</th>
+                            <td><input type="text" name="juusyo" class="form-control" value="{{ data.juusyo }}"></td>
+                        </tr>
+                        <tr>
+                            <th>最寄り駅</th>
+                            <td><input type="text" name="moyori" class="form-control" value="{{ data.moyori }}"></td>
+                        </tr>
+                        <tr>
+                            <th>最終学歴</th>
+                            <td><input type="text" name="gakureki" class="form-control" value="{{ data.gakureki }}"></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="3" class="align-middle">免許/資格</th>
+                            <td><input type="text" name="sikaku1" class="form-control" value="{{ data.sikaku1 }}"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="sikaku2" class="form-control" value="{{ data.sikaku2 }}"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="sikaku3" class="form-control" value="{{ data.sikaku3 }}"></td>
+                        </tr>
+                        <tr>
+                            <th>好きなこと</th>
+                            <td><input type="text" name="like" class="form-control" value="{{ data.like }}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+		</div>
+	</div>
+</div>
+
+<div class="col-xl-6">
+	<div class="card mb-4">
+	    <div class="card-header">
+	        <i class="fas fa-table me-1"></i>
+	        	年表
+	    </div>
+		<div class="card-body">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th><select name="year1" class="">
+                                <option {% if data.year1 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year1 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year1 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year1 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year1 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year1 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year1 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year1 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year1 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year1 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year1 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year1 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year1 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year1 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year1 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year1 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year1 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year1 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year1 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year1 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year1 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year1 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year1 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year1 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year1 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year1 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year1 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year1 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year1 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year1 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year1 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year1 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year1 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year1 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year1 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year1 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year1 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year1 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year1 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year1 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year1 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year1 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year1 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year1 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year1 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year1 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year1 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year1 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year1 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year1 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year1 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year1 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year1 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year1 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year1 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year1 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year1 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year1 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year1 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year1 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year1 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year1 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year1 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year1 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year1 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year1 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year1 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year1 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year1 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year1 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year1 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year1 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year1 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year1 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year1 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year1 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year1 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year1 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year1 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year1 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year1 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year1 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year1 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year1 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year1 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year1 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year1 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year1 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year1 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year1 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year1 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year1 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year1 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year1 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year1 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month1" class="">
+                                <option {% if data.month1 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month1 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month1 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month1 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month1 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month1 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month1 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month1 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month1 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month1 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month1 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month1 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month1 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input1" class="form-control" value="{{ data.input1 }}"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year2" class="">
+                                <option {% if data.year2 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year2 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year2 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year2 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year2 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year2 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year2 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year2 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year2 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year2 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year2 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year2 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year2 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year2 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year2 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year2 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year2 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year2 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year2 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year2 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year2 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year2 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year2 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year2 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year2 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year2 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year2 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year2 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year2 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year2 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year2 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year2 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year2 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year2 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year2 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year2 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year2 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year2 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year2 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year2 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year2 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year2 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year2 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year2 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year2 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year2 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year2 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year2 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year2 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year2 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year2 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year2 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year2 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year2 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year2 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year2 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year2 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year2 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year2 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year2 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year2 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year2 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year2 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year2 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year2 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year2 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year2 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year2 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year2 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year2 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year2 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year2 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year2 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year2 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year2 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year2 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year2 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year2 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year2 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year2 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year2 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year2 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year2 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year2 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year2 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year2 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year2 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year2 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year2 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year2 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year2 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year2 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year2 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year2 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year2 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month2" class="">
+                                <option {% if data.month2 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month2 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month2 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month2 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month2 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month2 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month2 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month2 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month2 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month2 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month2 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month2 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month2 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input2" class="form-control" value="{{ data.input2 }}"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year3" class="">
+                                <option {% if data.year3 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year3 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year3 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year3 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year3 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year3 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year3 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year3 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year3 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year3 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year3 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year3 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year3 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year3 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year3 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year3 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year3 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year3 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year3 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year3 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year3 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year3 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year3 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year3 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year3 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year3 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year3 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year3 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year3 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year3 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year3 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year3 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year3 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year3 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year3 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year3 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year3 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year3 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year3 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year3 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year3 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year3 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year3 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year3 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year3 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year3 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year3 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year3 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year3 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year3 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year3 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year3 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year3 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year3 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year3 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year3 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year3 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year3 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year3 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year3 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year3 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year3 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year3 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year3 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year3 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year3 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year3 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year3 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year3 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year3 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year3 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year3 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year3 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year3 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year3 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year3 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year3 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year3 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year3 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year3 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year3 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year3 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year3 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year3 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year3 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year3 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year3 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year3 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year3 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year3 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year3 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year3 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year3 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year3 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year3 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month3" class="">
+                                <option {% if data.month3 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month3 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month3 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month3 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month3 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month3 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month3 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month3 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month3 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month3 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month3 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month3 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month3 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input3" class="form-control" value="{{ data.input3 }}"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year4" class="">
+                                <option {% if data.year4 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year4 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year4 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year4 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year4 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year4 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year4 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year4 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year4 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year4 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year4 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year4 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year4 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year4 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year4 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year4 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year4 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year4 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year4 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year4 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year4 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year4 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year4 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year4 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year4 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year4 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year4 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year4 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year4 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year4 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year4 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year4 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year4 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year4 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year4 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year4 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year4 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year4 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year4 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year4 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year4 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year4 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year4 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year4 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year4 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year4 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year4 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year4 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year4 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year4 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year4 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year4 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year4 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year4 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year4 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year4 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year4 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year4 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year4 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year4 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year4 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year4 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year4 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year4 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year4 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year4 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year4 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year4 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year4 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year4 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year4 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year4 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year4 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year4 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year4 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year4 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year4 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year4 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year4 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year4 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year4 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year4 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year4 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year4 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year4 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year4 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year4 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year4 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year4 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year4 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year4 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year4 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year4 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year4 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year4 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month4" class="">
+                                <option {% if data.month4 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month4 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month4 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month4 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month4 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month4 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month4 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month4 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month4 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month4 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month4 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month4 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month4 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input4" class="form-control" value="{{ data.input4 }}"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year5" class="">
+                                <option {% if data.year5 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year5 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year5 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year5 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year5 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year5 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year5 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year5 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year5 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year5 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year5 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year5 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year5 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year5 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year5 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year5 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year5 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year5 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year5 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year5 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year5 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year5 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year5 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year5 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year5 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year5 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year5 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year5 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year5 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year5 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year5 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year5 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year5 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year5 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year5 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year5 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year5 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year5 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year5 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year5 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year5 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year5 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year5 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year5 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year5 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year5 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year5 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year5 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year5 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year5 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year5 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year5 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year5 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year5 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year5 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year5 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year5 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year5 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year5 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year5 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year5 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year5 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year5 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year5 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year5 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year5 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year5 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year5 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year5 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year5 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year5 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year5 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year5 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year5 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year5 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year5 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year5 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year5 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year5 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year5 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year5 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year5 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year5 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year5 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year5 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year5 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year5 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year5 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year5 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year5 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year5 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year5 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year5 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year5 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year5 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month5" class="">
+                                <option {% if data.month5 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month5 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month5 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month5 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month5 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month5 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month5 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month5 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month5 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month5 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month5 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month5 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month5 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input5" class="form-control" value="{{ data.input5 }}"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year6" class="">
+                                <option {% if data.year6 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year6 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year6 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year6 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year6 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year6 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year6 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year6 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year6 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year6 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year6 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year6 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year6 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year6 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year6 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year6 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year6 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year6 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year6 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year6 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year6 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year6 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year6 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year6 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year6 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year6 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year6 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year6 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year6 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year6 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year6 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year6 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year6 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year6 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year6 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year6 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year6 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year6 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year6 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year6 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year6 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year6 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year6 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year6 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year6 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year6 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year6 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year6 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year6 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year6 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year6 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year6 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year6 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year6 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year6 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year6 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year6 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year6 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year6 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year6 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year6 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year6 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year6 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year6 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year6 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year6 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year6 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year6 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year6 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year6 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year6 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year6 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year6 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year6 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year6 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year6 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year6 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year6 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year6 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year6 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year6 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year6 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year6 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year6 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year6 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year6 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year6 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year6 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year6 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year6 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year6 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year6 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year6 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year6 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year6 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month6" class="">
+                                <option {% if data.month6 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month6 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month6 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month6 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month6 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month6 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month6 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month6 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month6 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month6 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month6 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month6 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month6 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input6" class="form-control" value="{{ data.input6 }}"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year7" class="">
+                                <option {% if data.year7 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year7 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year7 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year7 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year7 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year7 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year7 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year7 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year7 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year7 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year7 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year7 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year7 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year7 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year7 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year7 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year7 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year7 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year7 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year7 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year7 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year7 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year7 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year7 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year7 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year7 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year7 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year7 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year7 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year7 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year7 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year7 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year7 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year7 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year7 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year7 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year7 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year7 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year7 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year7 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year7 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year7 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year7 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year7 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year7 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year7 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year7 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year7 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year7 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year7 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year7 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year7 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year7 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year7 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year7 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year7 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year7 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year7 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year7 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year7 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year7 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year7 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year7 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year7 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year7 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year7 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year7 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year7 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year7 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year7 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year7 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year7 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year7 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year7 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year7 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year7 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year7 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year7 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year7 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year7 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year7 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year7 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year7 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year7 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year7 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year7 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year7 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year7 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year7 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year7 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year7 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year7 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year7 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year7 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year7 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month7" class="">
+                                <option {% if data.month7 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month7 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month7 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month7 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month7 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month7 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month7 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month7 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month7 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month7 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month7 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month7 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month7 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input7" class="form-control" value="{{ data.input7 }}"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year8" class="">
+                                <option {% if data.year8 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year8 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year8 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year8 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year8 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year8 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year8 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year8 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year8 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year8 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year8 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year8 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year8 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year8 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year8 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year8 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year8 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year8 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year8 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year8 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year8 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year8 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year8 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year8 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year8 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year8 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year8 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year8 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year8 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year8 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year8 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year8 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year8 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year8 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year8 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year8 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year8 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year8 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year8 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year8 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year8 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year8 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year8 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year8 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year8 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year8 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year8 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year8 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year8 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year8 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year8 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year8 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year8 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year8 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year8 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year8 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year8 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year8 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year8 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year8 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year8 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year8 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year8 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year8 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year8 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year8 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year8 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year8 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year8 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year8 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year8 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year8 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year8 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year8 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year8 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year8 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year8 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year8 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year8 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year8 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year8 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year8 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year8 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year8 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year8 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year8 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year8 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year8 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year8 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year8 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year8 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year8 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year8 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year8 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year8 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month8" class="">
+                                <option {% if data.month8 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month8 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month8 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month8 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month8 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month8 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month8 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month8 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month8 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month8 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month8 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month8 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month8 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input8" class="form-control" value="{{ data.input8 }}"></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2" class="align-middle"><select name="year9" class="">
+                                <option {% if data.year9 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.year9 == '1930年' %}selected{% endif %} value="1930年">1930年</option>
+                                <option {% if data.year9 == '1931年' %}selected{% endif %} value="1931年">1931年</option>
+                                <option {% if data.year9 == '1932年' %}selected{% endif %} value="1932年">1932年</option>
+                                <option {% if data.year9 == '1933年' %}selected{% endif %} value="1933年">1933年</option>
+                                <option {% if data.year9 == '1934年' %}selected{% endif %} value="1934年">1934年</option>
+                                <option {% if data.year9 == '1935年' %}selected{% endif %} value="1935年">1935年</option>
+                                <option {% if data.year9 == '1936年' %}selected{% endif %} value="1936年">1936年</option>
+                                <option {% if data.year9 == '1937年' %}selected{% endif %} value="1937年">1937年</option>
+                                <option {% if data.year9 == '1938年' %}selected{% endif %} value="1938年">1938年</option>
+                                <option {% if data.year9 == '1939年' %}selected{% endif %} value="1939年">1939年</option>
+                                <option {% if data.year9 == '1940年' %}selected{% endif %} value="1940年">1940年</option>
+                                <option {% if data.year9 == '1941年' %}selected{% endif %} value="1941年">1941年</option>
+                                <option {% if data.year9 == '1942年' %}selected{% endif %} value="1942年">1942年</option>
+                                <option {% if data.year9 == '1943年' %}selected{% endif %} value="1943年">1943年</option>
+                                <option {% if data.year9 == '1944年' %}selected{% endif %} value="1944年">1944年</option>
+                                <option {% if data.year9 == '1945年' %}selected{% endif %} value="1945年">1945年</option>
+                                <option {% if data.year9 == '1946年' %}selected{% endif %} value="1946年">1946年</option>
+                                <option {% if data.year9 == '1947年' %}selected{% endif %} value="1947年">1947年</option>
+                                <option {% if data.year9 == '1948年' %}selected{% endif %} value="1948年">1948年</option>
+                                <option {% if data.year9 == '1949年' %}selected{% endif %} value="1949年">1949年</option>
+                                <option {% if data.year9 == '1950年' %}selected{% endif %} value="1950年">1950年</option>
+                                <option {% if data.year9 == '1951年' %}selected{% endif %} value="1951年">1951年</option>
+                                <option {% if data.year9 == '1952年' %}selected{% endif %} value="1952年">1952年</option>
+                                <option {% if data.year9 == '1953年' %}selected{% endif %} value="1953年">1953年</option>
+                                <option {% if data.year9 == '1954年' %}selected{% endif %} value="1954年">1954年</option>
+                                <option {% if data.year9 == '1955年' %}selected{% endif %} value="1955年">1955年</option>
+                                <option {% if data.year9 == '1956年' %}selected{% endif %} value="1956年">1956年</option>
+                                <option {% if data.year9 == '1957年' %}selected{% endif %} value="1957年">1957年</option>
+                                <option {% if data.year9 == '1958年' %}selected{% endif %} value="1958年">1958年</option>
+                                <option {% if data.year9 == '1959年' %}selected{% endif %} value="1959年">1959年</option>
+                                <option {% if data.year9 == '1960年' %}selected{% endif %} value="1960年">1960年</option>
+                                <option {% if data.year9 == '1961年' %}selected{% endif %} value="1961年">1961年</option>
+                                <option {% if data.year9 == '1962年' %}selected{% endif %} value="1962年">1962年</option>
+                                <option {% if data.year9 == '1963年' %}selected{% endif %} value="1963年">1963年</option>
+                                <option {% if data.year9 == '1964年' %}selected{% endif %} value="1964年">1964年</option>
+                                <option {% if data.year9 == '1965年' %}selected{% endif %} value="1965年">1965年</option>
+                                <option {% if data.year9 == '1966年' %}selected{% endif %} value="1966年">1966年</option>
+                                <option {% if data.year9 == '1967年' %}selected{% endif %} value="1967年">1967年</option>
+                                <option {% if data.year9 == '1968年' %}selected{% endif %} value="1968年">1968年</option>
+                                <option {% if data.year9 == '1969年' %}selected{% endif %} value="1969年">1969年</option>
+                                <option {% if data.year9 == '1970年' %}selected{% endif %} value="1970年">1970年</option>
+                                <option {% if data.year9 == '1971年' %}selected{% endif %} value="1971年">1971年</option>
+                                <option {% if data.year9 == '1972年' %}selected{% endif %} value="1972年">1972年</option>
+                                <option {% if data.year9 == '1973年' %}selected{% endif %} value="1973年">1973年</option>
+                                <option {% if data.year9 == '1974年' %}selected{% endif %} value="1974年">1974年</option>
+                                <option {% if data.year9 == '1975年' %}selected{% endif %} value="1975年">1975年</option>
+                                <option {% if data.year9 == '1976年' %}selected{% endif %} value="1976年">1976年</option>
+                                <option {% if data.year9 == '1977年' %}selected{% endif %} value="1977年">1977年</option>
+                                <option {% if data.year9 == '1978年' %}selected{% endif %} value="1978年">1978年</option>
+                                <option {% if data.year9 == '1979年' %}selected{% endif %} value="1979年">1979年</option>
+                                <option {% if data.year9 == '1980年' %}selected{% endif %} value="1980年">1980年</option>
+                                <option {% if data.year9 == '1981年' %}selected{% endif %} value="1981年">1981年</option>
+                                <option {% if data.year9 == '1982年' %}selected{% endif %} value="1982年">1982年</option>
+                                <option {% if data.year9 == '1983年' %}selected{% endif %} value="1983年">1983年</option>
+                                <option {% if data.year9 == '1984年' %}selected{% endif %} value="1984年">1984年</option>
+                                <option {% if data.year9 == '1985年' %}selected{% endif %} value="1985年">1985年</option>
+                                <option {% if data.year9 == '1986年' %}selected{% endif %} value="1986年">1986年</option>
+                                <option {% if data.year9 == '1987年' %}selected{% endif %} value="1987年">1987年</option>
+                                <option {% if data.year9 == '1988年' %}selected{% endif %} value="1988年">1988年</option>
+                                <option {% if data.year9 == '1989年' %}selected{% endif %} value="1989年">1989年</option>
+                                <option {% if data.year9 == '1990年' %}selected{% endif %} value="1990年">1990年</option>
+                                <option {% if data.year9 == '1991年' %}selected{% endif %} value="1991年">1991年</option>
+                                <option {% if data.year9 == '1992年' %}selected{% endif %} value="1992年">1992年</option>
+                                <option {% if data.year9 == '1993年' %}selected{% endif %} value="1993年">1993年</option>
+                                <option {% if data.year9 == '1994年' %}selected{% endif %} value="1994年">1994年</option>
+                                <option {% if data.year9 == '1995年' %}selected{% endif %} value="1995年">1995年</option>
+                                <option {% if data.year9 == '1996年' %}selected{% endif %} value="1996年">1996年</option>
+                                <option {% if data.year9 == '1997年' %}selected{% endif %} value="1997年">1997年</option>
+                                <option {% if data.year9 == '1998年' %}selected{% endif %} value="1998年">1998年</option>
+                                <option {% if data.year9 == '1999年' %}selected{% endif %} value="1999年">1999年</option>
+                                <option {% if data.year9 == '2000年' %}selected{% endif %} value="2000年">2000年</option>
+                                <option {% if data.year9 == '2001年' %}selected{% endif %} value="2001年">2001年</option>
+                                <option {% if data.year9 == '2002年' %}selected{% endif %} value="2002年">2002年</option>
+                                <option {% if data.year9 == '2003年' %}selected{% endif %} value="2003年">2003年</option>
+                                <option {% if data.year9 == '2004年' %}selected{% endif %} value="2004年">2004年</option>
+                                <option {% if data.year9 == '2005年' %}selected{% endif %} value="2005年">2005年</option>
+                                <option {% if data.year9 == '2006年' %}selected{% endif %} value="2006年">2006年</option>
+                                <option {% if data.year9 == '2007年' %}selected{% endif %} value="2007年">2007年</option>
+                                <option {% if data.year9 == '2008年' %}selected{% endif %} value="2008年">2008年</option>
+                                <option {% if data.year9 == '2009年' %}selected{% endif %} value="2009年">2009年</option>
+                                <option {% if data.year9 == '2010年' %}selected{% endif %} value="2010年">2010年</option>
+                                <option {% if data.year9 == '2011年' %}selected{% endif %} value="2011年">2011年</option>
+                                <option {% if data.year9 == '2012年' %}selected{% endif %} value="2012年">2012年</option>
+                                <option {% if data.year9 == '2013年' %}selected{% endif %} value="2013年">2013年</option>
+                                <option {% if data.year9 == '2014年' %}selected{% endif %} value="2014年">2014年</option>
+                                <option {% if data.year9 == '2015年' %}selected{% endif %} value="2015年">2015年</option>
+                                <option {% if data.year9 == '2016年' %}selected{% endif %} value="2016年">2016年</option>
+                                <option {% if data.year9 == '2017年' %}selected{% endif %} value="2017年">2017年</option>
+                                <option {% if data.year9 == '2018年' %}selected{% endif %} value="2018年">2018年</option>
+                                <option {% if data.year9 == '2019年' %}selected{% endif %} value="2019年">2019年</option>
+                                <option {% if data.year9 == '2020年' %}selected{% endif %} value="2020年">2020年</option>
+                                <option {% if data.year9 == '2021年' %}selected{% endif %} value="2021年">2021年</option>
+                                <option {% if data.year9 == '2022年' %}selected{% endif %} value="2022年">2022年</option>
+                                <option {% if data.year9 == '2023年' %}selected{% endif %} value="2023年">2023年</option>
+                            </select>
+                            <select name="month9" class="">
+                                <option {% if data.month9 == ' ' %}selected{% endif %} value=" "> </option>
+                                <option {% if data.month9 == '1月' %}selected{% endif %} value="1月">1月</option>
+                                <option {% if data.month9 == '2月' %}selected{% endif %} value="2月">2月</option>
+                                <option {% if data.month9 == '3月' %}selected{% endif %} value="3月">3月</option>
+                                <option {% if data.month9 == '4月' %}selected{% endif %} value="4月">4月</option>
+                                <option {% if data.month9 == '5月' %}selected{% endif %} value="5月">5月</option>
+                                <option {% if data.month9 == '6月' %}selected{% endif %} value="6月">6月</option>
+                                <option {% if data.month9 == '7月' %}selected{% endif %} value="7月">7月</option>
+                                <option {% if data.month9 == '8月' %}selected{% endif %} value="8月">8月</option>
+                                <option {% if data.month9 == '9月' %}selected{% endif %} value="9月">9月</option>
+                                <option {% if data.month9 == '10月' %}selected{% endif %} value="10月">10月</option>
+                                <option {% if data.month9 == '11月' %}selected{% endif %} value="11月">11月</option>
+                                <option {% if data.month9 == '12月' %}selected{% endif %} value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input9" class="form-control" value="{{ data.input9 }}"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="input10" class="form-control" value="{{ data.input10 }}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% endfor %}
+            {% else %}
+            <tbody>
+                <tr>
+                    <th>名前</th>
+                    <td><input type="text" name="name" class="form-control" value="{{ user.username }}"></td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td>
+                        <select name="gender" id="" value="">
+                            <option {% if user.gender == '女性' %}selected{% endif %} value="女性">女性</option>
+                            <option {% if user.gender == '男性' %}selected{% endif %} value="男性">男性</option>
+                            <option {% if user.gender == 'その他' %}selected{% endif %} value="その他">その他</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>生年月日</th>
+                    <td>{{ user.birthday }}</td>
+                </tr>
+                <tr>
+                    <th>住所</th>
+                    <td><input type="text" name="juusyo" class="form-control" value=""></td>
+                </tr>
+                <tr>
+                    <th>最寄り駅</th>
+                    <td><input type="text" name="moyori" class="form-control" value=""></td>
+                </tr>
+                <tr>
+                    <th>最終学歴</th>
+                    <td><input type="text" name="gakureki" class="form-control" value=""></td>
+                </tr>
+                <tr>
+                    <th rowspan="3" class="align-middle">免許/資格</th>
+                    <td><input type="text" name="sikaku1" class="form-control" value=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="sikaku2" class="form-control" value=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="sikaku3" class="form-control" value=""></td>
+                </tr>
+                <tr>
+                    <th>好きなこと</th>
+                    <td><input type="text" name="like" class="form-control" value=""></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-6">
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+                年表
+        </div>
+        <div class="card-body">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th><select name="year1" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month1" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year2" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month2" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input2" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year3" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month3" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input3" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year4" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month4" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input4" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year5" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month5" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input5" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year6" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month6" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input6" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year7" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month7" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input7" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th><select name="year8" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month8" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input8" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2" class="align-middle"><select name="year9" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1930年">1930年</option>
+                                <option value="1931年">1931年</option>
+                                <option value="1932年">1932年</option>
+                                <option value="1933年">1933年</option>
+                                <option value="1934年">1934年</option>
+                                <option value="1935年">1935年</option>
+                                <option value="1936年">1936年</option>
+                                <option value="1937年">1937年</option>
+                                <option value="1938年">1938年</option>
+                                <option value="1939年">1939年</option>
+                                <option value="1940年">1940年</option>
+                                <option value="1941年">1941年</option>
+                                <option value="1942年">1942年</option>
+                                <option value="1943年">1943年</option>
+                                <option value="1944年">1944年</option>
+                                <option value="1945年">1945年</option>
+                                <option value="1946年">1946年</option>
+                                <option value="1947年">1947年</option>
+                                <option value="1948年">1948年</option>
+                                <option value="1949年">1949年</option>
+                                <option value="1950年">1950年</option>
+                                <option value="1951年">1951年</option>
+                                <option value="1952年">1952年</option>
+                                <option value="1953年">1953年</option>
+                                <option value="1954年">1954年</option>
+                                <option value="1955年">1955年</option>
+                                <option value="1956年">1956年</option>
+                                <option value="1957年">1957年</option>
+                                <option value="1958年">1958年</option>
+                                <option value="1959年">1959年</option>
+                                <option value="1960年">1960年</option>
+                                <option value="1961年">1961年</option>
+                                <option value="1962年">1962年</option>
+                                <option value="1963年">1963年</option>
+                                <option value="1964年">1964年</option>
+                                <option value="1965年">1965年</option>
+                                <option value="1966年">1966年</option>
+                                <option value="1967年">1967年</option>
+                                <option value="1968年">1968年</option>
+                                <option value="1969年">1969年</option>
+                                <option value="1970年">1970年</option>
+                                <option value="1971年">1971年</option>
+                                <option value="1972年">1972年</option>
+                                <option value="1973年">1973年</option>
+                                <option value="1974年">1974年</option>
+                                <option value="1975年">1975年</option>
+                                <option value="1976年">1976年</option>
+                                <option value="1977年">1977年</option>
+                                <option value="1978年">1978年</option>
+                                <option value="1979年">1979年</option>
+                                <option value="1980年">1980年</option>
+                                <option value="1981年">1981年</option>
+                                <option value="1982年">1982年</option>
+                                <option value="1983年">1983年</option>
+                                <option value="1984年">1984年</option>
+                                <option value="1985年">1985年</option>
+                                <option value="1986年">1986年</option>
+                                <option value="1987年">1987年</option>
+                                <option value="1988年">1988年</option>
+                                <option value="1989年">1989年</option>
+                                <option value="1990年">1990年</option>
+                                <option value="1991年">1991年</option>
+                                <option value="1992年">1992年</option>
+                                <option value="1993年">1993年</option>
+                                <option value="1994年">1994年</option>
+                                <option value="1995年">1995年</option>
+                                <option value="1996年">1996年</option>
+                                <option value="1997年">1997年</option>
+                                <option value="1998年">1998年</option>
+                                <option value="1999年">1999年</option>
+                                <option value="2000年">2000年</option>
+                                <option value="2001年">2001年</option>
+                                <option value="2002年">2002年</option>
+                                <option value="2003年">2003年</option>
+                                <option value="2004年">2004年</option>
+                                <option value="2005年">2005年</option>
+                                <option value="2006年">2006年</option>
+                                <option value="2007年">2007年</option>
+                                <option value="2008年">2008年</option>
+                                <option value="2009年">2009年</option>
+                                <option value="2010年">2010年</option>
+                                <option value="2011年">2011年</option>
+                                <option value="2012年">2012年</option>
+                                <option value="2013年">2013年</option>
+                                <option value="2014年">2014年</option>
+                                <option value="2015年">2015年</option>
+                                <option value="2016年">2016年</option>
+                                <option value="2017年">2017年</option>
+                                <option value="2018年">2018年</option>
+                                <option value="2019年">2019年</option>
+                                <option value="2020年">2020年</option>
+                                <option value="2021年">2021年</option>
+                                <option value="2022年">2022年</option>
+                                <option value="2023年">2023年</option>
+                            </select>
+                            <select name="month9" class="">
+                                <option value="" selected=""> </option>
+                                <option value="1月">1月</option>
+                                <option value="2月">2月</option>
+                                <option value="3月">3月</option>
+                                <option value="4月">4月</option>
+                                <option value="5月">5月</option>
+                                <option value="6月">6月</option>
+                                <option value="7月">7月</option>
+                                <option value="8月">8月</option>
+                                <option value="9月">9月</option>
+                                <option value="10月">10月</option>
+                                <option value="11月">11月</option>
+                                <option value="12月">12月</option>
+                            </select></th>
+                            <td><input type="text" name="input9" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="input10" class="form-control"></td>
+                        </tr>
+                    </tbody>
+                {% endif %}
+                </table>
+            </form>
+		</div>
+	</div>
+    <input type="submit" form="myform" class="myright btn-primary btn">
+</div>

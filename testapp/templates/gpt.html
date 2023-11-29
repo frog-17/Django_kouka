@@ -1,0 +1,18 @@
+<style>
+    .myindent{
+        padding-top: 10px;
+        padding-bottom: 400px;
+    }
+</style>
+<div class="myindent">
+    <form method="post">
+        {% csrf_token %}
+        <input type="text", name="situmon">
+        <button type="submit">送信</button>
+    </form>
+    {% if answer %}
+    <p>質問内容 >> {{ question }}</p>
+    <br>
+    <p>{{ answer|linebreaksbr }}</p>
+    {% endif %}
+</div>

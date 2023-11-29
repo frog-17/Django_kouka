@@ -1,0 +1,153 @@
+<div class="col-xl-6">
+	<div class="card mb-4">
+	    <div class="card-header">
+	        <i class="fas fa-table me-1"></i>
+	        	基本情報
+	    </div>
+		<div class="card-body">
+			<table class="table table-bordered">
+				{% if a %}
+				{% for data in a %}
+			    <tbody>
+					<tr>
+						<th>名前</th>
+			    		<td>{{ data.name }}</td>
+					</tr>
+					<tr>
+						<th>性別</th>
+			    		<td>{{ data.gender }}</td>
+					</tr>
+					<tr>
+						<th>生年月日</th>
+			    		<td>{{ user.birthday }}</td>
+					</tr>
+					<tr>
+						<th>住所</th>
+			    		<td>{{ data.juusyo }}</td>
+					</tr>
+					<tr>
+						<th>最寄り駅</th>
+			    		<td>{{ data.moyori }}</td>
+					</tr>
+					<tr>
+						<th>最終学歴</th>
+			    		<td>{{ data.gakureki }}</td>
+					</tr>
+					<tr>
+						<th rowspan="3" class="align-middle">免許/資格</th>
+			    		<td>{{ data.sikaku1 }}</td>
+					</tr>
+					<tr>
+			    		<td>{{ data.sikaku2 }}</td>
+					</tr>
+					<tr>
+			    		<td>{{ data.sikaku3 }}</td>
+					</tr>
+					<tr>
+						<th>好きなこと</th>
+			    		<td>{{ data.like }}</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+				{% else %}
+				<tbody>
+					<tr>
+						<th>名前</th>
+			    		<td>{{ user.username }}</td>
+					</tr>
+					<tr>
+						<th>性別</th>
+			    		<td>{{ user.gender }}</td>
+					</tr>
+					<tr>
+						<th>生年月日</th>
+			    		<td>{{ user.birthday }}</td>
+					</tr>
+					<tr>
+						<th>住所</th>
+			    		<td></td>
+					</tr>
+					<tr>
+						<th>最寄り駅</th>
+			    		<td></td>
+					</tr>
+					<tr>
+						<th>最終学歴</th>
+			    		<td></td>
+					</tr>
+					<tr>
+						<th rowspan="3" class="align-middle">免許/資格</th>
+			    		<td></td>
+					</tr>
+					<tr>
+			    		<td></td>
+					</tr>
+					<tr>
+			    		<td></td>
+					</tr>
+					<tr>
+						<th>好きなこと</th>
+			    		<td></td>
+					</tr>
+				</tbody>
+				{% endif %}
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="col-xl-6">
+	<div class="card mb-4">
+	    <div class="card-header">
+	        <i class="fas fa-table me-1"></i>
+	        	年表
+	    </div>
+		<div class="card-body">
+			<table class="table table-bordered">
+				{% for data in a %}
+			    <tbody>
+					<tr>
+						<th>{{ data.year1 }}{{ data.month1 }}</th>
+			    		<td>{{ data.input1 }}</td>
+					</tr>
+					<tr>
+						<th>{{ data.year2 }}{{ data.month2 }}</th>
+			    		<td>{{ data.input2 }}</td>
+					</tr>
+					<tr>
+						<th>{{ data.year3 }}{{ data.month3 }}</th>
+			    		<td>{{ data.input3 }}</td>
+					</tr>
+					<tr>
+						<th>{{ data.year4 }}{{ data.month4 }}</th>
+			    		<td>{{ data.input4 }}</td>
+					</tr>
+					<tr>
+						<th>{{ data.year5 }}{{ data.month5 }}</th>
+			    		<td>{{ data.input5 }}</td>
+					</tr>
+					<tr>
+						<th>{{ data.year6 }}{{ data.month6 }}</th>
+			    		<td>{{ data.input6 }}</td>
+					</tr>
+					<tr>
+						<th>{{ data.year7 }}{{ data.month7 }}</th>
+			    		<td>{{ data.input7 }}</td>
+					</tr>
+					<tr>
+						<th>{{ data.year8 }}{{ data.month8 }}</th>
+			    		<td>{{ data.input8 }}</td>
+					</tr>
+					<tr>
+						<th rowspan="2" class="align-middle">{{ data.year9 }}{{ data.month9 }}</th>
+			    		<td>{{ data.input9 }}</td>
+					</tr>
+					<tr>
+			    		<td>{{ data.input10 }}</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>

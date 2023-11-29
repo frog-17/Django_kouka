@@ -1,0 +1,31 @@
+{% extends "base_accounts.html" %}
+
+{% block title %}ログアウト{% endblock title %}
+
+{% block contents %}
+<div id="__next" data-reactroot="">
+    <div>
+        <div class="SignUp__WrapperStyle-sc-kneaoh-0 ioxQJB">
+            <main>
+                <div class="SignUpHeading__SignUpHeadingWrap-sc-87dfgq-0 cYQOpm">
+                    <div class="SignUpHeading__HeadingWrap-sc-87dfgq-1 jfeOiV">
+                        <h1 font-size="3.2" font-weight="700" class="Typography__TypographyH1-sc-l5sj8g-0 kCmfwF">ログアウトしました</h1>
+                    </div>
+                </div>
+                <div class="SignUpMain__MainStyle-sc-1v4w1gs-0 ekwVOl">
+                    <div class="SignUpDetail__LogoutLinkWrap-sc-6qe6fp-6 gbMxqI">
+                        <p>再度マイページを表示したい場合にはログインする必要があります。</p>
+                        <p>下記リンクよりログインページにアクセスできます。</p>
+                        <a href="{% url 'test:login' %}">ログインこちらから</a>
+                    </div>
+                </div>
+            </main>
+            <footer class="Footer__FooterStyle-sc-1q42ty3-0 yeZRL">
+                <div class="footer__copy">
+                    <div class="text-muted">Copyright &copy; HayatoFurukawa 2023</div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+{% endblock contents %}

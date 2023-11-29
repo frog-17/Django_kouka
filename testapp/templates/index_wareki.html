@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<style>
+    .mymargin{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .mycontet{
+        text-align: center;
+    }
+</style>
+	<main>
+	    <div class="container-fluid px-4">
+	        <h1 class="mt-4">入学、卒業年月日を計算します！</h1>
+	        <div class="row">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3 align-items-center mymargin">
+                        <div class="col-auto">
+                            <label class="col-form-label">ここに生まれた西暦を入れてください！</label>
+                        </div>
+                        <div class="">
+                            <select name="year" class="mycontent">
+                                <option value="1930">1930年</option>
+                                <option value="1931">1931年</option>
+                                <option value="1932">1932年</option>
+                                <option value="1933">1933年</option>
+                                <option value="1934">1934年</option>
+                                <option value="1935">1935年</option>
+                                <option value="1936">1936年</option>
+                                <option value="1937">1937年</option>
+                                <option value="1938">1938年</option>
+                                <option value="1939">1939年</option>
+                                <option value="1940">1940年</option>
+                                <option value="1941">1941年</option>
+                                <option value="1942">1942年</option>
+                                <option value="1943">1943年</option>
+                                <option value="1944">1944年</option>
+                                <option value="1945">1945年</option>
+                                <option value="1946">1946年</option>
+                                <option value="1947">1947年</option>
+                                <option value="1948">1948年</option>
+                                <option value="1949">1949年</option>
+                                <option value="1950">1950年</option>
+                                <option value="1951">1951年</option>
+                                <option value="1952">1952年</option>
+                                <option value="1953">1953年</option>
+                                <option value="1954">1954年</option>
+                                <option value="1955">1955年</option>
+                                <option value="1956">1956年</option>
+                                <option value="1957">1957年</option>
+                                <option value="1958">1958年</option>
+                                <option value="1959">1959年</option>
+                                <option value="1960">1960年</option>
+                                <option value="1961">1961年</option>
+                                <option value="1962">1962年</option>
+                                <option value="1963">1963年</option>
+                                <option value="1964">1964年</option>
+                                <option value="1965">1965年</option>
+                                <option value="1966">1966年</option>
+                                <option value="1967">1967年</option>
+                                <option value="1968">1968年</option>
+                                <option value="1969">1969年</option>
+                                <option value="1970">1970年</option>
+                                <option value="1971">1971年</option>
+                                <option value="1972">1972年</option>
+                                <option value="1973">1973年</option>
+                                <option value="1974">1974年</option>
+                                <option value="1975">1975年</option>
+                                <option value="1976">1976年</option>
+                                <option value="1977">1977年</option>
+                                <option value="1978">1978年</option>
+                                <option value="1979">1979年</option>
+                                <option value="1980">1980年</option>
+                                <option value="1981">1981年</option>
+                                <option value="1982">1982年</option>
+                                <option value="1983">1983年</option>
+                                <option value="1984">1984年</option>
+                                <option value="1985">1985年</option>
+                                <option value="1986">1986年</option>
+                                <option value="1987">1987年</option>
+                                <option value="1988">1988年</option>
+                                <option value="1989">1989年</option>
+                                <option value="1990">1990年</option>
+                                <option value="1991">1991年</option>
+                                <option value="1992">1992年</option>
+                                <option value="1993">1993年</option>
+                                <option value="1994">1994年</option>
+                                <option value="1995">1995年</option>
+                                <option value="1996">1996年</option>
+                                <option value="1997">1997年</option>
+                                <option value="1998">1998年</option>
+                                <option value="1999">1999年</option>
+                                <option value="2000">2000年</option>
+                                <option value="2001">2001年</option>
+                                <option value="2002">2002年</option>
+                                <option value="2003">2003年</option>
+                                <option value="2004">2004年</option>
+                                <option value="2005">2005年</option>
+                                <option value="2006">2006年</option>
+                                <option value="2007">2007年</option>
+                                <option value="2008">2008年</option>
+                                <option value="2009">2009年</option>
+                                <option value="2010">2010年</option>
+                                <option value="2011">2011年</option>
+                                <option value="2012">2012年</option>
+                                <option value="2013">2013年</option>
+                                <option value="2014">2014年</option>
+                                <option value="2015">2015年</option>
+                                <option value="2016">2016年</option>
+                                <option value="2017">2017年</option>
+                                <option value="2018">2018年</option>
+                                <option value="2019">2019年</option>
+                                <option value="2020">2020年</option>
+                                <option value="2021">2021年</option>
+                                <option value="2022">2022年</option>
+                                <option value="2023">2023年</option>
+                            </select>
+                            <select name="month" class="mycontent">
+                                <option value="1">1月</option>
+                                <option value="2">2月</option>
+                                <option value="3">3月</option>
+                                <option value="4">4月</option>
+                                <option value="5">5月</option>
+                                <option value="6">6月</option>
+                                <option value="7">7月</option>
+                                <option value="8">8月</option>
+                                <option value="9">9月</option>
+                                <option value="10">10月</option>
+                                <option value="11">11月</option>
+                                <option value="12">12月</option>
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <input type="submit" class="myright btn-primary btn">
+                        </div>
+                      </div>
+                </form>
+                <div class="mymargin">
+                    <p>選択された年月日 >> {{ year }} {{ month }}</p>
+                    <div class="mymargin">
+		                {% include 'wareki.html' %}
+                    </div>
+                </div>
+	        </div>
+	    </div>
+	</main>
+
+{% endblock contents %}
