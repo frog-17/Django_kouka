@@ -101,7 +101,7 @@ class RegisterView(generic.TemplateView):
         date = self.request.POST.get('date')
         password1 = self.request.POST.get('password1')
         password2 = self.request.POST.get('password2')
-        if email_hikaku == '':
+        if email_hikaku == '<QuerySet []>':
             if password1 == password2:
                 alphabet = 0
                 number = 0
@@ -165,7 +165,8 @@ class Register_cancelView(generic.TemplateView):
         date = self.request.POST.get('date')
         password1 = self.request.POST.get('password1')
         password2 = self.request.POST.get('password2')
-        if email_hikaku == '':
+        print(email_hikaku)
+        if email_hikaku == '<QuerySet []>':
             if password1 == password2:
                 alphabet = 0
                 number = 0
